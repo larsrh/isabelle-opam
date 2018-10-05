@@ -1,0 +1,2 @@
+#!/bin/sh
+exec "$ISABELLE_TOOL" ocaml "$@"

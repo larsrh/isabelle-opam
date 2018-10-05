@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# Author: Lars Hupel
+#
+# DESCRIPTION: perform opam setup
+
+set -e
+
+isabelle_opam init --quiet --no-setup --no-opamrc
+if ! ( isabelle_opam switch list -s | grep -q -F "$ISABELLE_OCAML_VERSION" ); then
+  isabelle_opam switch create "$ISABELLE_OCAML_VERSION"
+fi
+isabelle_opam switch --quiet set "$ISABELLE_OCAML_VERSION" >/dev/null
