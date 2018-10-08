@@ -6,8 +6,6 @@
 
 set -e
 
-"$ISABELLE_TOOL" opam_setup
-
 eval "$(isabelle_opam env --set-root)"
 
 exec ocaml "$@"
